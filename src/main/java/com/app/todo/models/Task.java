@@ -14,7 +14,6 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id ;
     private String Title;
-    private boolean completed;
-    
-    
+    private int completed = 0;
+      
 }

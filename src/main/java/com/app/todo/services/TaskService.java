@@ -26,7 +26,7 @@ public class TaskService {
     public void createTask(String title) {
         Task task = new Task();
         task.setTitle(title);
-        task.setCompleted(false);
+        task.setCompleted(0);
         taskRepository.save(task);
        
     }
@@ -38,7 +38,7 @@ public class TaskService {
     public void toggleTask(Long id) {
         Task task = taskRepository.findById(id)
         .orElseThrow(() -> new IllegalArgumentException("Invalid Task id"));
-        task.setCompleted(!task.isCompleted());;
+        task.setCompleted(task.getCompleted() == 1 ? 0 : 1);;
         taskRepository.save(task);
     }
 
